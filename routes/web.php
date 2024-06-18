@@ -17,6 +17,12 @@ Route::get('/sobre', function(){
     return view ('sobre', ['nome'=>$nome]);
 });
 
+
 Route::get('/produtos', function(){
     return view ('produtos');
+});
+
+// Rota produtos espera receber um ID
+Route::get('/produtos/{id}', function($id){
+    return view ('produto', ['id' => $id]);
 });
