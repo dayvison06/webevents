@@ -1,7 +1,8 @@
 *{
-    font-family: Nunito Sans;
+    font-family: 'Roboto';
 }
 
-h1{
-    color: red;
+#navbar img {
+    margin-left: 20px;
+    width: 50px;   
 }

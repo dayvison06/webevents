@@ -1,14 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EventController;
 
-Route::get('/', function () {
-       
+Route::get('/', [EventController::class, 'index']);
 
-    $numero = 10;
-
-    return view('welcome',['numero' => $numero]);
-});
+Route::get('/eventos/criar', [EventController::class, 'create']);
 
 Route::get('/sobre', function(){
 
@@ -19,10 +16,13 @@ Route::get('/sobre', function(){
 
 
 Route::get('/produtos', function(){
-    return view ('produtos');
+
+    $busca = request('search');
+
+    return view ('produtos',['busca' => $busca]);
 });
 
 // Rota produtos espera receber um ID
-Route::get('/produtos/{id}', function($id){
+Route::get('/produtos/{id?}', function($id){
     return view ('produto', ['id' => $id]);
 });
