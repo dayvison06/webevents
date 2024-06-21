@@ -20,4 +20,34 @@ public function index(){
 public function create(){
     return view('eventos.criar');
 }
+
+public function store(Request $request){
+    $evento = new Evento;
+
+    $evento->title = $request->title;
+    $evento->city = $request->city;
+    $evento->private = $request->private;
+    $evento->description = $request->description;
+
+    //image upload
+    if($request-> hasFile('image') && $request->file('image')->isValid()){
+        $requestImage = $request->image;
+
+        $extension = $requestImage->extension();
+
+        $imageName = md5($requestImage->getClientOriginalName().strtotime("now")).".".$extension;
+
+        $requestImage->move(public_path('img/eventos'), $imageName);
+
+        $evento->image = $imageName;
+    }else{
+        
+        $evento->image = 'placeholder-image.svg'; 
+    }
+
+    $evento->save();
+
+    return redirect('/')->with('msg','Evento criado com sucesso!');
+}
+
 }

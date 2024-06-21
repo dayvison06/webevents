@@ -18,7 +18,7 @@
                 {{-- Exibe os eventos diretamente do banco de dados através do foreach --}}
                 @foreach ($eventos as $evento)
                     <div class="card col-md-3">
-                        <img src="/img/placeholder-image.svg" alt="{{ $evento->title }}">
+                        <img src="/img/eventos/{{ $evento->image }}" alt="{{ $evento->title }}">
                         <div class="card-body">
                             <p class="card-date">10/09/2024</p>
                             <h5 class="card-title">{{ $evento->title }}</h5>
