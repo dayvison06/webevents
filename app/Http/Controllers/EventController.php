@@ -28,6 +28,7 @@ public function store(Request $request){
     $evento->city = $request->city;
     $evento->private = $request->private;
     $evento->description = $request->description;
+    $evento->items = $request->items;
 
     //image upload
     if($request-> hasFile('image') && $request->file('image')->isValid()){
