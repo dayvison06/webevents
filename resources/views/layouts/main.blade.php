@@ -28,16 +28,16 @@
                 </a>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="/" class="nav-link">Eventos</a>
+                        <a href="/" class="nav-link"><ion-icon name="calendar-outline"></ion-icon> Eventos</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/eventos/criar" class="nav-link">Criar Eventos</a>
+                        <a href="/eventos/criar" class="nav-link"><ion-icon name="create-outline"></ion-icon> Criar Eventos</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/" class="nav-link">Entrar</a>
+                        <a href="/" class="nav-link"><ion-icon name="enter-outline"></ion-icon> Entrar</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/" class="nav-link">Cadastrar</a>
+                        <a href="/" class="nav-link btn btn-primary" id="btnRegister">Cadastrar</a>
                     </li>
                 </ul>
             </div>

@@ -50,11 +50,32 @@ header{
     width: 50px;   
 }
 
+.nav-link{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
 #navbar{
     justify-content: space-between;
     background-color: #ffff;
     padding: 5px 0;
-    margin-right: 50px;
+    margin-right: 60px;
+}
+
+#navbar ion-icon{
+    
+    align-items: center;
+}
+
+#btnRegister{
+    background-color: #ed1e00;
+    border: none;
+    font-weight: bold;
+    color: white!important;
+}
+
+#btnRegister:hover{
+    background-color: #bb240d;
 }
 
 #navbar a{
@@ -221,6 +242,10 @@ footer p{
     margin: 20px 0;
 }
 
+.event-date{
+    
+}
+
 #items-list{
     list-style: none;
     padding-left: 0px;
@@ -228,4 +253,10 @@ footer p{
 
 #items-list li{
     display: flex;
+}
+
+/* Mensagem quando não há eventos */
+
+#sem-eventos{
+    text-align: center;
 }

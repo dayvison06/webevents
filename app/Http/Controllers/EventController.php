@@ -25,6 +25,7 @@ public function store(Request $request){
     $evento = new Evento;
 
     $evento->title = $request->title;
+    $evento->date = $request->date;
     $evento->city = $request->city;
     $evento->private = $request->private;
     $evento->description = $request->description;
