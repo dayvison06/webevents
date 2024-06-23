@@ -50,4 +50,15 @@ public function store(Request $request){
     return redirect('/')->with('msg','Evento criado com sucesso!');
 }
 
+
+public function show($id){
+    $evento = Evento::findOrFail($id);
+
+    return view('eventos.show', ['evento' => $evento]);
+}
+
+public function destroy($id){
+    Evento::where('id', $id)->delete();
+    return redirect('/')->with('msg','Jogo excluído com sucesso!');
+}
 }
