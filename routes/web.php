@@ -16,3 +16,13 @@ Route::delete('/eventos/{id}',[EventController::class,'destroy'])->where('id', '
 Route::get('/sobre', function(){
     return view ('sobre');
 });
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});

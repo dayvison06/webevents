@@ -31,14 +31,32 @@
                         <a href="/" class="nav-link"><ion-icon name="calendar-outline"></ion-icon> Eventos</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/eventos/criar" class="nav-link"><ion-icon name="create-outline"></ion-icon> Criar Eventos</a>
+                        <a href="/eventos/criar" class="nav-link"><ion-icon name="create-outline"></ion-icon> Criar
+                            Eventos</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="/" class="nav-link"><ion-icon name="enter-outline"></ion-icon> Entrar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/" class="nav-link btn btn-primary" id="btnRegister">Cadastrar</a>
-                    </li>
+                    {{-- Diretiva para convidado --}}
+                    @auth
+                        <li class="nav-item">
+                            <a href="/dashboard" class="nav-link"><ion-icon name="star-outline"></ion-icon> Meus eventos</a>
+                        </li>
+                        <li class="nav-item">
+                            <form action="/logout" method="POST">
+                                @csrf
+                                <a href="/logout" class="nav-link"
+                                    onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                                    Sair</a>
+                            </form>
+                        </li>
+                    @endauth
+                    @guest
+                        <li class="nav-item">
+                            <a href="/login" class="nav-link"><ion-icon name="enter-outline"></ion-icon> Entrar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/register" class="nav-link btn btn-primary" id="btnRegister">Cadastrar</a>
+                        </li>
+                    @endguest
                 </ul>
             </div>
         </nav>
