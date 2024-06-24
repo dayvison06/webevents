@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', '$evento->title')
+@section('title', $evento->title)
 
 @section('content')
 
@@ -10,7 +10,7 @@
                 <img src="/img/eventos/{{$evento->image}}" class="img-fluid" alt="{{$evento->title}}">
             </div>
             <div id="info-container" class="col-md-6">
-                <h1>{{$evento->title}}</h1>
+                <h1>{{ $evento->title }}</h1>
                 <p class="event-date"><ion-icon name="today-outline"></ion-icon> Data do evento: {{date('d/m/Y', strtotime($evento->date))}}</p>
                 <p class="event-city"><ion-icon name="location-outline"></ion-icon>{{$evento->city}}</p>
                 <p class="events-participants"><ion-icon name="people-outline"></ion-icon> X Participantes</p>
