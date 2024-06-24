@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Evento;
+use App\Models\User;
 
 class EventController extends Controller
 {
@@ -55,6 +56,10 @@ public function store(Request $request){
         $evento->image = 'placeholder-image.svg'; 
     }
 
+    // Pegar o usuário autenticado
+    $user = auth()->user();
+    $evento->user_id = $user->id;
+
     $evento->save();
 
     return redirect('/')->with('msg','Evento criado com sucesso!');
@@ -64,7 +69,9 @@ public function store(Request $request){
 public function show($id){
     $evento = Evento::findOrFail($id);
 
-    return view('eventos.show', ['evento' => $evento]);
+    $donoEvento = User::where('id', $evento->user_id)->first()->toArray();
+
+    return view('eventos.show', ['evento' => $evento, 'donoEvento' => $donoEvento]);
 }
 
 public function destroy($id){

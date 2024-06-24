@@ -5,8 +5,8 @@ use App\Http\Controllers\EventController;
 
 // Página inicial
 Route::get('/', [EventController::class, 'index']);
-// Criar um evento
-Route::get('/eventos/criar', [EventController::class, 'create']);
+// Criar um evento // Adição de middleware para permitir que somente autenticados criem eventos
+Route::get('/eventos/criar', [EventController::class, 'create'])->middleware('auth');
 // Rota para mostrar um dado especifico
 Route::get('eventos/{id}', [EventController::class, 'show']);
 // Rota para armazenar o evento cadastrado com base na documentação do laravel
